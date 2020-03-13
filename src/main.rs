@@ -19,6 +19,7 @@ fn main() {
                 routes::sample_route,
                 routes::install,
                 routes::addons,
+                routes::support,
                 statics::favicon,
                 statics::static_files,
                 errors::error_create_403,
