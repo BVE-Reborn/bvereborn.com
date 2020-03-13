@@ -5,6 +5,7 @@ use rocket::fairing::Fairing;
 use rocket::{get, routes};
 use rocket_contrib::serve::StaticFiles;
 use rocket_contrib::templates::Template;
+use std::fs::read_to_string;
 
 #[get("/")]
 fn index() -> Template {
@@ -17,7 +18,11 @@ fn index() -> Template {
 macro_rules! register_partial {
     ($handlebars:expr, $name:literal) => {
         $handlebars
-            .register_partial($name, include_str!(concat!("../templates/", $name, ".hbs")))
+            .register_partial(
+                $name,
+                read_to_string(concat!("templates/", $name, ".hbs"))
+                    .expect(concat!("Unable to read file ", concat!("templates/", $name, ".hbs"))),
+            )
             .expect(concat!("Count not register partial ", $name, ".hbs"))
     };
 }
