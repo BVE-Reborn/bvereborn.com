@@ -2,10 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{title}}</title>
     <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css">
     <link rel="icon" type="image/png" href="/static/logo-32px.png">
 </head>
 <body>
-    {{> @partial-block }}
+    <div class="container">
+        <nav class="navbar sticky-top navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Navbar</a>
+        </nav>
+
+        {{> @partial-block }}
+    </div>
 </body>
