@@ -1,0 +1,41 @@
+<header class="navbar navbar-expand sticky-top navbar-dark bg-dark">
+    <div class="container-lg flex-column flex-lg-row">
+        <a class="navbar-brand" href="/">BVE-Reborn</a>
+
+        <ul class="navbar-nav mr-lg-auto">
+            <li class="nav-item dropdown {{#if (str_eq active "download")}}active{{/if}}">
+                <a class="nav-link dropdown-toggle" id="downloadDropdown" role="button" data-toggle="dropdown" href="#">Download</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/download">BVE-Reborn</a>
+                    <a class="dropdown-item" href="/download/sample-route">Sample Route</a>
+                </div>
+            </li>
+            <li class="nav-item {{#if (str_eq active "install")}}active{{/if}}">
+                <a class="nav-link" href="/install">Install</a>
+            </li>
+            <li class="nav-item {{#if (str_eq active "addons")}}active{{/if}}">
+                <a class="nav-link" href="/addons">Addons</a>
+            </li>
+            <li class="nav-item {{#if (str_eq active "community")}}active{{/if}}">
+                <a class="nav-link" href="/community">Community</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{link "openbve-docs"}}">File Documentation</a>
+            </li>
+            <li class="nav-item {{#if (str_eq active "tools")}}active{{/if}}">
+                <a class="nav-link font-weight-bold" href="/tools" style="color: #67d6ff">Online Tools!</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-lg-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{link "openbve"}}">OpenBVE</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{link "github"}}">Github</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/support">Support</a>
+            </li>
+        </ul>
+    </div>
+</header>

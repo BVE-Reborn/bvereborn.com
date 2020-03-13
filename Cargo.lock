@@ -198,6 +198,7 @@ dependencies = [
  "maplit",
  "rocket",
  "rocket_contrib",
+ "serde",
  "serde_json",
 ]
 

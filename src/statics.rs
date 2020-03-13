@@ -1,4 +1,4 @@
-use crate::headers::Headers;
+use crate::helpers::Headers;
 use rocket::response::{NamedFile, Redirect};
 use rocket::{get, uri};
 use std::path::{Path, PathBuf};

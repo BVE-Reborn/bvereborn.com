@@ -1,0 +1,25 @@
+{{#> single active="download" title="Download BVE-Reborn" width=6 }}
+    <div class="text-center">
+        <h4>BVE-Reborn isn't available to download yet, but check out our <a href="{{link "github"}}">Github</a> or our <a href="/tools">Online Tools!</a></h4>
+    </div>
+    <div class="text-center invisible">
+        <h1>Download BVE-Reborn v{{version}}</h1>
+
+        <p>
+            BVE-Reborn comes as either an installable package or an archive file for each platform.
+        </p>
+        <p>
+            Your OS has been autodetected as {{os}}:
+        </p>
+
+        <a role="button" class="mt-2 mb-4 btn btn-lg btn-success" href="{{preferred.link}}">{{preferred.name}}</a>
+
+        <p class="mb-1">
+            Other Installers:
+        </p>
+
+        {{#each others}}
+            <p class="m-1"><a href="{{link}}"><u>{{name}}</a></p>
+        {{/each}}
+    </div>
+{{/single}}

@@ -11,8 +11,11 @@ macro_rules! register_partial {
         $handlebars
             .register_partial(
                 $name,
-                read_to_string(concat!("templates/", $name, ".hbs"))
-                    .expect(concat!("Unable to read file ", concat!("templates/", $name, ".hbs"))),
+                read_to_string(concat!("templates/partials/", $name, ".hbs")).expect(concat!(
+                    "Unable to read file templates/partials/",
+                    $name,
+                    ".hbs"
+                )),
             )
             .expect(concat!("Count not register partial ", $name, ".hbs"))
     };
@@ -53,7 +56,10 @@ fn get_link(h: &Helper, _: &Handlebars, _: &Context, _: &mut RenderContext, out:
 pub fn configure_templates() -> impl Fairing {
     Template::custom(|engines| {
         let handlebars = &mut engines.handlebars;
+        register_partial!(handlebars, "header");
+        register_partial!(handlebars, "navbar");
         register_partial!(handlebars, "page");
+        register_partial!(handlebars, "single");
         handlebars.register_helper("link", Box::new(get_link));
         handlebars.register_helper("str_eq", Box::new(StrEq));
     })

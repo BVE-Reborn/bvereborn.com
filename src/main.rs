@@ -1,9 +1,9 @@
-#![feature(proc_macro_hygiene, decl_macro)]
+#![feature(proc_macro_hygiene, decl_macro, never_type)]
 
 use rocket::{catchers, routes};
 
 mod errors;
-pub mod headers;
+mod helpers;
 mod routes;
 mod statics;
 mod templating;
@@ -15,6 +15,7 @@ fn main() {
             "/",
             routes![
                 routes::index,
+                routes::download,
                 statics::favicon,
                 statics::static_files,
                 errors::error_create_403,
