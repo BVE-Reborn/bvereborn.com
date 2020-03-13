@@ -8,6 +8,7 @@ edition = "2018"
 
 [dependencies]
 bve = "0.0.1"
+time = "0.1.42"
 rocket = "0.4.4"
 maplit = "1.0.2"
 serde = { version = "1.0.104", features = ["derive"] }
@@ -16,4 +17,4 @@ serde_json = "1.0.48"
 [dependencies.rocket_contrib]
 version = "0.4.4"
 default-features = false
-features = ["json", "handlebars_templates"]
+features = ["helmet", "json", "handlebars_templates"]

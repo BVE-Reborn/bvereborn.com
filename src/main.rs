@@ -1,6 +1,8 @@
 #![feature(proc_macro_hygiene, decl_macro, never_type)]
 
 use rocket::{catchers, routes};
+use rocket_contrib::helmet;
+use time::Duration;
 
 mod errors;
 mod helpers;
@@ -11,6 +13,11 @@ mod templating;
 fn main() {
     rocket::ignite()
         .attach(templating::configure_templates())
+        .attach(
+            helmet::SpaceHelmet::default()
+                .enable(helmet::Referrer::NoReferrer)
+                .enable(helmet::Hsts::Enable(Duration::seconds(365 * 24 * 60 * 60))),
+        )
         .mount(
             "/",
             routes![
@@ -19,7 +26,8 @@ fn main() {
                 routes::sample_route,
                 routes::install,
                 routes::addons,
-                routes::support,
+                routes::community,
+                routes::patreon,
                 statics::favicon,
                 statics::static_files,
                 errors::error_create_403,

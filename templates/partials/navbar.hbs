@@ -2,7 +2,7 @@
     <div class="container-lg flex-column flex-lg-row">
         <a class="navbar-brand" href="/">BVE-Reborn</a>
 
-        <ul class="navbar-nav mr-lg-auto">
+        <ul class="navbar-nav">
             <li class="nav-item dropdown {{#if (str_eq active "download")}}active{{/if}}">
                 <a class="nav-link dropdown-toggle" id="downloadDropdown" role="button" data-toggle="dropdown" href="#">Download</a>
                 <div class="dropdown-menu">
@@ -16,6 +16,8 @@
             <li class="nav-item {{#if (str_eq active "addons")}}active{{/if}}">
                 <a class="nav-link" href="/addons">Addons</a>
             </li>
+        </ul>
+        <ul class="navbar-nav mr-lg-auto">
             <li class="nav-item {{#if (str_eq active "community")}}active{{/if}}">
                 <a class="nav-link" href="/community">Community</a>
             </li>
@@ -38,7 +40,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/support">Support</a>
+                <a class="nav-link" href="/patreon">Patreon</a>
             </li>
         </ul>
     </div>

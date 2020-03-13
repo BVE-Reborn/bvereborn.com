@@ -11,6 +11,11 @@ pub fn index() -> Headers<Template> {
     Headers::public(Template::render("main", &()))
 }
 
+#[get("/community")]
+pub fn community() -> Headers<Template> {
+    Headers::public(Template::render("community", &()))
+}
+
 fn coming_soon(active: &str, name: &str) -> Headers<Template> {
     let ctx = hashmap! {
         "active" => active,
@@ -34,7 +39,7 @@ pub fn addons() -> Headers<Template> {
     coming_soon("addons", "the addons page")
 }
 
-#[get("/support")]
-pub fn support() -> Headers<Template> {
-    coming_soon("support", "our Patreon")
+#[get("/patreon")]
+pub fn patreon() -> Headers<Template> {
+    coming_soon("patreon", "our Patreon")
 }
