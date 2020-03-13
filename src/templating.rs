@@ -46,6 +46,7 @@ fn get_link(h: &Helper, _: &Handlebars, _: &Context, _: &mut RenderContext, out:
     let param = h.param(0).and_then(|v| v.value().as_str()).unwrap_or("");
     out.write(match param {
         "github" => "https://github.com/BVE-Reborn/bve-reborn",
+        "github-website" => "https://github.com/BVE-Reborn/bvereborn.com",
         "openbve" => "https://openbve-project.net",
         "openbve-docs" => "https://openbve-project.net/documentation_hugo/en/",
         _ => panic!("Unknown link name {}", param),
