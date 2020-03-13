@@ -9,8 +9,9 @@ edition = "2018"
 [dependencies]
 bve = "0.0.1"
 rocket = "0.4.4"
+maplit = "1.0.2"
 
 [dependencies.rocket_contrib]
 version = "0.4.4"
 default-features = false
-features = ["json", "serve"]
+features = ["json", "serve", "handlebars_templates"]
