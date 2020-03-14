@@ -19,3 +19,8 @@ serde_json = "1.0.48"
 version = "0.4.4"
 default-features = false
 features = ["helmet", "json", "handlebars_templates"]
+
+[profile.release]
+lto = true
+codegen-units = 1
+incremental = false
