@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+
       - name: Set Env
         run: |
           echo "::add-path::$HOME/.cargo/bin"
