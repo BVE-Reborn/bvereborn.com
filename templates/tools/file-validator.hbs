@@ -1,7 +1,22 @@
 {{#> page active="tools" title="File Validator" }}
     <script>
+        let triggered = false;
+        function edit() {
+            if (triggered) {
+                return;
+            }
+            const parse_button = $( "#parseButton" );
+            parse_button.removeClass( ["btn-success", "btn-danger"] );
+            parse_button.text( "Parse" );
+            parse_button.addClass( "btn-primary" );
+            triggered = true;
+        }
         function submit() {
             const start = performance.now();
+            const parse_button = $( "#parseButton" );
+            parse_button.removeClass( ["btn-primary", "btn-success", "btn-danger"] );
+            parse_button.text( "Parsing..." );
+            parse_button.addClass( "btn-warning" );
             $.ajax({
                 type: "POST",
                 url: "/api/validate-file",
@@ -10,9 +25,22 @@
                     kind: $( "#fileKindSelect" ).val(),
                 },
                 success: function ( result ) {
-                    $( "#outputBox" ).html( result.contents )
-                    $( "#errorBox" ).html( result.warnings )
+                    $( "#outputBox" ).html( result.contents );
+                    $( "#errorBox" ).html( result.warnings );
                     $( "#timeProcess" ).html( result.time.toFixed(3) )
+                    parse_button.removeClass( "btn-warning" )
+                    const error_text = $( "#errorCount" );
+                    if (result.errors !== 0) {
+                        parse_button.text( "Errors!" );
+                        parse_button.addClass( "btn-danger" );
+                        error_text.html( result.errors + ", Bad!" );
+                        triggered = false;
+                    } else {
+                        parse_button.text( "Success!" );
+                        parse_button.addClass( "btn-success" );
+                        error_text.html( result.errors + ", Good!" );
+                        triggered = false;
+                    }
                     const end = performance.now();
                     $( "#timeReq" ).html( ((end - start) / 1000).toFixed(3) )
                 }
@@ -21,10 +49,10 @@
     </script>
     <div class="row justify-content-center align-items-center">
         <div class="col-12 col-lg-5">
-            <div class="text-center">
+            <div class="mt-2 text-center">
                 <h2>Source</h2>
             </div>
-            <textarea class="px-2 py-1" id="inputBox" style="min-height: 450px; width: 100%"></textarea>
+            <textarea class="px-2 py-1 text-monospace" id="inputBox" style="font-size: 0.8em; min-height: 450px; width: 100%" oninput="edit()"></textarea>
         </div>
         <div class="col-6 col-lg-2">
             <select id="fileKindSelect" class="form-control mb-3">
@@ -35,25 +63,26 @@
                 <option value="traindat">Train.dat</option>
                 <option value="extensions">Extensions.cfg</option>
             </select>
-            <button type="button" class="btn btn-primary mx-auto d-block" onclick="submit()">
+            <button type="button" id="parseButton" class="btn btn-primary mt-2 mx-auto d-block" onclick="submit()">
                 Parse
             </button>
         </div>
         <div class="col-12 col-lg-5">
-            <div class="text-center">
+            <div class="mt-2 text-center">
                 <h2>Parsed</h2>
             </div>
-            <div class="border border-dark overflow-auto px-2 py-1" id="outputBox" style="min-height: 450px; max-height: 450px"></div>
+            <div class="border border-dark overflow-auto px-2 py-1 text-monospace" id="outputBox" style="font-size: 0.8em; min-height: 450px; max-height: 450px"></div>
         </div>
         <div class="col-12 text-center">
             <p class="mb-0">Processing time: <span id="timeProcess">0.0</span>s</p>
-            <p>Total time: <span id="timeReq">0.0</span>s</p>
+            <p class="mb-0">Total time: <span id="timeReq">0.0</span>s</p>
+            <p class="mb-0">Errors: <span id="errorCount">0</span></p>
         </div>
         <div class="col-12 col-lg-8">
-            <div class="text-center">
+            <div class="mt-2 text-center">
                 <h2>Errors</h2>
             </div>
-            <div class="border border-dark overflow-auto px-2 py-1" id="errorBox" style="min-height: 200px; max-height: 200px"><</div>
+            <div class="border border-dark overflow-auto px-2 py-1 text-monospace" id="errorBox" style="font-size: 0.8em; min-height: 200px; max-height: 200px"></div>
         </div>
     </div>
 {{/page}}
