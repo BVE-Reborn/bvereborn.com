@@ -20,12 +20,11 @@ jobs:
       - name: Install cargo
         run: |
           rustup self update
-          rustup set profile minimal
           rustup update
 
       - name: Install cross
         run: |
-          cargo install cross
+          cargo +stable install cross
 
       - name: Build server
         run: |
