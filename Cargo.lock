@@ -162,7 +162,7 @@ dependencies = [
  "fluent",
  "include_dir",
  "indexmap",
- "itertools",
+ "itertools 0.8.2",
  "lazy_static",
  "locale_config",
  "nom",
@@ -184,7 +184,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "40a1ed40e907587c8c4330d0639b920b15baecb5d53acaa23b36ae57302252af"
 dependencies = [
  "darling",
- "itertools",
+ "itertools 0.8.2",
  "proc-macro2 1.0.9",
  "quote 1.0.3",
  "syn 1.0.16",
@@ -195,6 +195,7 @@ name = "bve-reborn-site"
 version = "0.1.0"
 dependencies = [
  "bve",
+ "itertools 0.9.0",
  "maplit",
  "rocket",
  "rocket_contrib",
@@ -760,6 +761,15 @@ name = "itertools"
 version = "0.8.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f56a2d0bc861f9165be4eb3442afd3c236d8a98afd426f65d92324ae1091a484"
+dependencies = [
+ "either",
+]
+
+[[package]]
+name = "itertools"
+version = "0.9.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "284f18f85651fe11e8a991b2adb42cb078325c996ed026d994719efcfca1d54b"
 dependencies = [
  "either",
 ]

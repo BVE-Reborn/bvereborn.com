@@ -1,10 +1,12 @@
 use crate::helpers::Headers;
 pub use download::*;
+pub use file_validator::*;
 use maplit::hashmap;
 use rocket::get;
 use rocket_contrib::templates::Template;
 
 mod download;
+mod file_validator;
 
 #[get("/")]
 pub fn index() -> Headers<Template> {

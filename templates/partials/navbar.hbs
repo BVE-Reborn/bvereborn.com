@@ -24,8 +24,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{link "openbve-docs"}}">File Documentation</a>
             </li>
-            <li class="nav-item {{#if (str_eq active "tools")}}active{{/if}}">
-                <a class="nav-link font-weight-bold" href="/tools" style="color: #67d6ff">Online Tools!</a>
+            <li class="nav-item dropdown {{#if (str_eq active "tools")}}active{{/if}}">
+                <a class="nav-link dropdown-toggle" id="toolDropdown" role="button" data-toggle="dropdown" href="#" style="color: #67d6ff">Online Tools!</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/tools/file-validator">File Validator</a>
+                </div>
             </li>
         </ul>
         <ul class="navbar-nav ml-lg-auto">

@@ -9,6 +9,7 @@ edition = "2018"
 [dependencies]
 bve = "0.0.1"
 time = "0.1.42"
+itertools = "0.9.0"
 rocket = "0.4.4"
 maplit = "1.0.2"
 serde = { version = "1.0.104", features = ["derive"] }

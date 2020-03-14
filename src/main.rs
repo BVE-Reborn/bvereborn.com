@@ -28,6 +28,8 @@ fn main() {
                 routes::addons,
                 routes::community,
                 routes::patreon,
+                routes::file_validator,
+                routes::validate_file,
                 statics::favicon,
                 statics::static_files,
                 errors::error_create_403,
