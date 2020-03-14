@@ -1,0 +1,31 @@
+name: build
+on: [push]
+
+env:
+  RUST_BACKTRACE: full
+
+jobs:
+  build:
+    name: build-musl-docker
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: Set Env
+        run: |
+          echo "::add-path::$HOME/.cargo/bin"
+
+      - name: Install cargo
+        run: |
+          rustup self update
+          rustup set profile minimal
+          rustup update
+
+      - name: Install cross
+        run: |
+          cargo install cross
+
+      - name: Build server
+        run: |
+          cross build --target x86_64-unknown-linux-musl --release --bin bve-reborn-site
+          ls target/x86_64-unknown-linux-musl
+          ls target/
