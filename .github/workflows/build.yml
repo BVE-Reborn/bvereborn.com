@@ -29,5 +29,10 @@ jobs:
       - name: Build server
         run: |
           cross build --target x86_64-unknown-linux-musl --release --bin bve-reborn-site
-          ls target/x86_64-unknown-linux-musl
-          ls target/
+          ls target/x86_64-unknown-linux-musl/release
+
+      - uses: jerray/publish-docker-action@master
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: cwfitzgerald/bve-reborn-site
