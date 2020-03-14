@@ -48,11 +48,15 @@
         }
     </script>
     <div class="row justify-content-center align-items-center">
+        <div class="col-12 text-center">
+            <h1>File Validator</h1>
+            <p>Run various BVE files through validation for errors to help improve your files.</p>
+        </div>
         <div class="col-12 col-lg-5">
-            <div class="mt-2 text-center">
+            <div class="text-center">
                 <h2>Source</h2>
             </div>
-            <textarea class="px-2 py-1 text-monospace" id="inputBox" style="font-size: 0.8em; min-height: 450px; width: 100%" oninput="edit()"></textarea>
+            <textarea class="px-2 py-1 text-monospace" id="inputBox" style="font-size: 0.8em; min-height: 350px; width: 100%" oninput="edit()"></textarea>
         </div>
         <div class="col-6 col-lg-2">
             <select id="fileKindSelect" class="form-control mb-3">
@@ -68,10 +72,10 @@
             </button>
         </div>
         <div class="col-12 col-lg-5">
-            <div class="mt-2 text-center">
+            <div class="text-center">
                 <h2>Parsed</h2>
             </div>
-            <div class="border border-dark overflow-auto px-2 py-1 text-monospace" id="outputBox" style="font-size: 0.8em; min-height: 450px; max-height: 450px"></div>
+            <div class="border border-dark overflow-auto px-2 py-1 text-monospace" id="outputBox" style="font-size: 0.8em; min-height: 350px; max-height: 350px"></div>
         </div>
         <div class="col-12 text-center">
             <p class="mb-0">Processing time: <span id="timeProcess">0.0</span>s</p>
