@@ -36,3 +36,13 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: cwfitzgerald/bve-reborn-site
+
+      - name: Deploy
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ./github/workflows/deploy.bash
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+        if: ${{ github.ref }} == 'master'
