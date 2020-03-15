@@ -201,7 +201,6 @@ dependencies = [
  "rocket_contrib",
  "serde",
  "serde_json",
- "time",
 ]
 
 [[package]]
@@ -1412,7 +1411,6 @@ dependencies = [
  "rocket",
  "serde",
  "serde_json",
- "time",
 ]
 
 [[package]]

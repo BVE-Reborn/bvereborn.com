@@ -8,7 +8,6 @@ edition = "2018"
 
 [dependencies]
 bve = "0.0.1"
-time = "0.1.42"
 itertools = "0.9.0"
 rocket = "0.4.4"
 maplit = "1.0.2"
@@ -18,7 +17,7 @@ serde_json = "1.0.48"
 [dependencies.rocket_contrib]
 version = "0.4.4"
 default-features = false
-features = ["helmet", "json", "handlebars_templates"]
+features = ["json", "handlebars_templates"]
 
 [profile.release]
 lto = true
