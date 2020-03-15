@@ -42,7 +42,7 @@ jobs:
           mkdir -p ~/.ssh/
           echo "$SSH_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ./github/workflows/deploy.bash
+          ./.github/workflows/deploy.bash
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
         if: github.ref == 'refs/heads/master'
